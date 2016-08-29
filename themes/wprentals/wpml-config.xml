@@ -1,0 +1,99 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1">estate_agent</custom-type>
+    <custom-type translate="0">wpestate_invoice</custom-type>
+    <custom-type translate="0">membership_package</custom-type>
+    <custom-type translate="1">estate_property</custom-type>
+  </custom-types>
+  <taxonomies>
+    <taxonomy translate="1">property_category</taxonomy>
+    <taxonomy translate="1">property_action_category</taxonomy>
+    <taxonomy translate="1">property_city</taxonomy>
+    <taxonomy translate="1">property_area</taxonomy>
+  </taxonomies>
+  <custom-fields>
+    <custom-field action="copy">agent_email</custom-field>
+    <custom-field action="copy">agent_facebook</custom-field>
+    <custom-field action="copy">agent_linkedin</custom-field>
+    <custom-field action="copy">agent_mobile</custom-field>
+    <custom-field action="copy">agent_phone</custom-field>
+    <custom-field action="copy">agent_pinterest</custom-field>
+    <custom-field action="copy">agent_position</custom-field>
+    <custom-field action="copy">agent_skype</custom-field>
+    <custom-field action="copy">agent_twitter</custom-field>
+    <custom-field action="copy">property-basement</custom-field>
+    <custom-field action="copy">property-date</custom-field>
+    <custom-field action="copy">property-external-construction</custom-field>
+    <custom-field action="copy">property-garage</custom-field>
+    <custom-field action="copy">property-garage-size</custom-field>
+    <custom-field action="copy">property-roofing</custom-field>
+    <custom-field action="copy">property-year</custom-field>
+    <custom-field action="copy">property_address</custom-field>
+    <custom-field action="copy">property_agent</custom-field>
+    <custom-field action="copy">property_area</custom-field>
+    <custom-field action="copy">property_basement</custom-field>
+    <custom-field action="copy">property_bathrooms</custom-field>
+    <custom-field action="copy">property_bedrooms</custom-field>
+    <custom-field action="copy">property_city</custom-field>
+    <custom-field action="copy">property_country</custom-field>
+    <custom-field action="copy">property_county</custom-field>
+    <custom-field action="copy">property_date</custom-field>
+    <custom-field action="copy">property_external_construction</custom-field>
+    <custom-field action="copy">property_garage</custom-field>
+    <custom-field action="copy">property_garage_size</custom-field>
+    <custom-field action="copy">property_google_view</custom-field>
+    <custom-field action="copy">property_label</custom-field>
+    <custom-field action="copy">property_latitude</custom-field>
+    <custom-field action="copy">property_longitude</custom-field>
+    <custom-field action="copy">property_lot_size</custom-field>
+    <custom-field action="copy">property_price</custom-field>
+    <custom-field action="copy">property_roofing</custom-field>
+    <custom-field action="copy">property_rooms</custom-field>
+    <custom-field action="copy">property_size</custom-field>
+    <custom-field action="copy">property_state</custom-field>
+    <custom-field action="copy">property_status</custom-field>
+    <custom-field action="copy">property_year</custom-field>
+    <custom-field action="copy">property_zip</custom-field>
+	<custom-field action="copy">biling_period</custom-field>
+	<custom-field action="copy">biling_type</custom-field>
+	<custom-field action="copy">billing_freq</custom-field>
+	<custom-field action="copy">bookid</custom-field>
+	<custom-field action="copy">booking_dates</custom-field>
+	<custom-field action="copy">booking_from_date</custom-field>
+	<custom-field action="copy">booking_guests</custom-field>
+	<custom-field action="copy">booking_guests_no</custom-field>
+	<custom-field action="copy">booking_id</custom-field>
+	<custom-field action="copy">booking_invoice_no</custom-field>
+	<custom-field action="copy">booking_listing_name</custom-field>
+	<custom-field action="copy">booking_pay_ammount</custom-field>
+	<custom-field action="copy">booking_status</custom-field>
+	<custom-field action="copy">booking_to_date</custom-field>	
+	<custom-field action="copy">booking_guest_no</custom-field>
+	<custom-field action="copy">agent_property_id</custom-field>
+	<custom-field action="copy">city_fee</custom-field>
+	<custom-field action="copy">city_fee_per_day</custom-field>
+	<custom-field action="copy">cleaning_fee</custom-field>
+	<custom-field action="copy">cleaning_fee_per_day</custom-field>	
+	<custom-field action="copy">buyer_id</custom-field>	
+		</custom-fields>
+  <admin-texts>
+    <key name="wp_estate_custom_fields">
+      <key name="*">
+        <key name="1"/>
+      </key>
+    </key>
+    <key name="wp_estate_feature_list"/>
+    <key name="wp_estate_property_features_text"/>
+    <key name="wp_estate_property_description_text"/>
+    <key name="wp_estate_property_details_text"/>
+    <key name="wp_estate_status_list"/>
+    <key name="wp_estate_logo_image"/>
+    <key name="wp_estate_transparent_logo_image"/>
+    <key name="wp_estate_mobile_logo_image"/>
+    <key name="wp_estate_favicon_image"/>
+    <key name="wp_estate_logo_image_retina"/>
+    <key name="wp_estate_transparent_logo_image_retina"/>
+    <key name="wp_estate_mobile_logo_image_retina"/>
+  </admin-texts>
+</wpml-config>
+

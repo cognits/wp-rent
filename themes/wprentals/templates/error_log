@@ -1,0 +1,8 @@
+[13-Mar-2016 14:14:14 UTC] PHP Fatal error:  Call to undefined function esc_html_e() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base_map_list.php on line 11
+[13-Mar-2016 14:15:01 UTC] PHP Fatal error:  Call to undefined function esc_html() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base.php on line 13
+[13-Mar-2016 14:15:16 UTC] PHP Fatal error:  Call to undefined function esc_html() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base.php on line 13
+[13-Mar-2016 14:15:50 UTC] PHP Fatal error:  Call to undefined function esc_html_e() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base_map_list.php on line 11
+[13-Mar-2016 14:38:17 UTC] PHP Fatal error:  Call to undefined function esc_html_e() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base_map_list.php on line 11
+[13-Mar-2016 14:39:13 UTC] PHP Fatal error:  Call to undefined function esc_html_e() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base_map_list.php on line 11
+[13-Mar-2016 14:39:24 UTC] PHP Fatal error:  Call to undefined function esc_html() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/google_maps_base.php on line 13
+[13-Mar-2016 14:41:33 UTC] PHP Fatal error:  Call to undefined function esc_html() in /home/wprentals/public_html/core/wp-content/themes/wprentals/templates/half_map_core.php on line 9
