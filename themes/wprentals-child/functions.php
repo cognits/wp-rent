@@ -16,6 +16,9 @@ if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
         wp_enqueue_script('rentadepacustom', get_stylesheet_directory_uri().'/js/rentadepa.js', array('jquery'), '1.0.0', true);
     }
 endif;
+
+load_child_theme_textdomain('wpestate', get_stylesheet_directory().'/languages');
+
 add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css' );
 
 // END ENQUEUE PARENT ACTION

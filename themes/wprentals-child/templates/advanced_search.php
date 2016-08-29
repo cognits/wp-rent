@@ -62,7 +62,7 @@ if($search_type == 'oldtype'){ ?>
         if ( isset($post->ID) && is_page($post->ID) &&  basename( get_page_template() ) == 'contact_page.php' ) {
             //
         }else {
-            include(locate_template('templates/advanced_search_type1.php'));
+            include(locate_template('templates/advanced_search_type1-1.php'));
         }               
         ?>
     </div>
