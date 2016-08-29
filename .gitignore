@@ -1,1 +1,2 @@
-themes/wp-rentals-child/node_modules/**/*
+themes/wp-rentals-child/node_modules
+themes/wp-rentals-child/bourbon

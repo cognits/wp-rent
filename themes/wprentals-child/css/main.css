@@ -1,0 +1,21 @@
+.contact_sidebar_wrap .widget_contact_addr {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .contact_sidebar_wrap .widget_contact_addr span {
+    margin: -8px 0 0; }
+
+.widget-title-footer {
+  text-transform: inherit !important; }
+
+@media (min-width: 1200px) {
+  #colophon .title-container {
+    margin-top: -15px; }
+    #colophon .title-container .price_unit_wrapper {
+      top: -15px; } }
+
+/*# sourceMappingURL=main.css.map */

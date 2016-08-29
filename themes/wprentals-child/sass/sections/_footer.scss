@@ -1,0 +1,20 @@
+.contact_sidebar_wrap {
+  .widget_contact_addr {
+    @include display(flex);
+    span {
+      @include margin(-8px 0 0 0 );
+    }
+  }
+}
+.widget-title-footer {
+  text-transform: inherit !important;
+}
+#colophon .title-container {
+  
+  @media (min-width: 1200px) {
+    margin-top: -15px;
+    .price_unit_wrapper {
+      top: -15px;
+    }
+  }
+}
