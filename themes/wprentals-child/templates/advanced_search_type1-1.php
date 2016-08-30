@@ -62,6 +62,7 @@ $google_map_lower_class='';
             <div class="dropdown form-control " >
                 <div data-toggle="dropdown" id="search_location" class="filter_menu_trigger" data-value="all"> <?php esc_html_e('colonia/barrio','wpestate');?> <span class="caret caret_filter"></span> </div>           
                 <input type="hidden" name="search_location"  id="search_location" value="">
+
                 <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="search_location">
                     <?php echo wpestate_get_city_select_list();?>
                 </ul>
@@ -79,7 +80,7 @@ $google_map_lower_class='';
         <div class="col-md-2">
             <div class="dropdown form-control" >
                 <div data-toggle="dropdown" id="baths_no" class="filter_menu_trigger" data-value="all"><?php echo esc_html__( 'Baths','wpestate');?> <span class="caret caret_filter"></span> </div>           
-                <input type="hidden" name="baths_no" id="baths_no_input"  value="">
+                <input type="hidden" name="baths_no" id="baths_no"  value="">
                 <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="baths_no">
                     <?php echo wpestate_get_baths_dropdown(); ?>
                 </ul>
@@ -88,17 +89,17 @@ $google_map_lower_class='';
         <div class="col-md-2">
             <div class="dropdown form-control" >
                 <div data-toggle="dropdown" id="plazo_arrendamiento" class="filter_menu_trigger" data-value="all"><?php echo esc_html__( 'plazo arrendamiento','wpestate');?> <span class="caret caret_filter"></span> </div>           
-                <input type="hidden" name="plazo_arrendamiento" id="plazo_arrendamiento_input"  value="">
+                <input type="hidden" name="plazo_arrendamiento" id="plazo_arrendamiento"  value="">
                 <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="plazo_arrendamiento">
-                    <li role="presentation" data-value="3-meses">+3 meses</li>
-                    <li role="presentation" data-value="6-meses">6 meses</li>
-                    <li role="presentation" data-value="12-meses">12 meses</li>
-                    <li role="presentation" data-value="otro">Otro</li>
+                    <li role="presentation" data-value="3">+3 meses</li>
+                    <li role="presentation" data-value="6">6 meses</li>
+                    <li role="presentation" data-value="12">12 meses</li>
+                    <li role="presentation" data-value="any">todos</li>
                 </ul>
             </div>
         </div>
 
-        <div class="col-md-2 has_calendar calendar_icon">
+        <div class="col-md-2 has_calendar ">
             <input type="text" id="check_in"    class="form-control " name="move_in"  placeholder="<?php esc_html_e('Move in','wpestate');?>" 
                 value="<?php  
                 if(isset($_GET['move_in'])){
@@ -107,6 +108,7 @@ $google_map_lower_class='';
         </div>
 
         <div class="col-md-2">
+        <input type="hidden" name="stype" id="stype" value="tax" />
         <input name="submit" type="submit" class="wpb_btn-info wpb_btn-small wpestate_vc_button  vc_button" id="advanced_submit_2" value="<?php esc_html_e('Search','wpestate');?>">
         </div>
               

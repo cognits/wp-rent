@@ -1,3 +1,9 @@
+html, body {
+  font-family: 'Open Sans', sans-serif; }
+
+.adv-1-wrapper {
+  background: transparent !important; }
+
 .contact_sidebar_wrap .widget_contact_addr {
   display: -webkit-box;
   display: -moz-box;

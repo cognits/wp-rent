@@ -7,6 +7,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
         
 if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
     function chld_thm_cfg_parent_css() {
+        wp_enqueue_style('opensans-font','//fonts.googleapis.com/css?family=Open+Sans:300,400,700', array(), '1.0', 'all');
+
         wp_enqueue_style('wpestate_bootstrap',get_template_directory_uri().'/css/bootstrap.css', array(), '1.0', 'all');
         wp_enqueue_style('wpestate_bootstrap-theme',get_template_directory_uri().'/css/bootstrap-theme.css', array(), '1.0', 'all');
         wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css' ); 

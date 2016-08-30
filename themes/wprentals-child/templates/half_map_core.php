@@ -35,7 +35,7 @@ wp_reset_query();
     
     <div id="google_map_prop_list_sidebar">
         <?php  get_template_part('templates/compare_list'); ?> 
-        <?php get_template_part('templates/advanced_search_map_list');?>
+        <?php get_template_part('templates/advanced_search_map_list_custom');?>
         <?php  get_template_part('templates/spiner'); ?> 
             
         <div id="listing_ajax_container" class="ajax-map"> 

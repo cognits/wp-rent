@@ -108,7 +108,8 @@ if($show_adv_search_general=='no'){
                     $country_array['type']       =   'CHAR';
                     $country_array['compare']    =   'LIKE'; 
                     $meta_query_part[]           =   $country_array;
-                    $meta_query[]=$meta_query_part;  
+                    $meta_query[]=$meta_query_part;
+                    var_dump($meta_query_part);
                 }
         }
     
@@ -123,6 +124,51 @@ if($show_adv_search_general=='no'){
             $guest_array['type']     = 'numeric';
             $guest_array['compare']  = '>='; 
             $meta_query[]            = $guest_array;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// Rooms meta
+        //////////////////////////////////////////////////////////////////////////////////////
+        $room_array=array();
+        if( isset($_GET['rooms_no'])  && is_numeric($_GET['rooms_no']) ){
+
+            $rooms_no       = intval($_GET['rooms_no']);
+            //var_dump($rooms_no);
+            $room_array['key']      = 'property_rooms';
+            $room_array['value']    = $rooms_no;
+            $room_array['type']     = 'numeric';
+            $room_array['compare']  = '=='; 
+            $meta_query[]            = $room_array;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// Bathroom meta
+        //////////////////////////////////////////////////////////////////////////////////////
+        $bath_array=array();
+        if( isset($_GET['baths_no'])  && is_numeric($_GET['baths_no']) ){
+
+            $baths_no       = intval($_GET['baths_no']);
+            //var_dump($baths_no);
+            $bath_array['key']      = 'property_bathrooms';
+            $bath_array['value']    = $rooms_no;
+            $bath_array['type']     = 'numeric';
+            $bath_array['compare']  = '=='; 
+            $meta_query[]            = $bath_array;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// Plazo arrendamiento meta
+        //////////////////////////////////////////////////////////////////////////////////////
+        $plazo_arrendamiento_array=array();
+
+        if( isset($_GET['plazo_arrendamiento']) ) {
+
+            $plazo_arrendamiento       = intval($_GET['plazo_arrendamiento']);
+            //var_dump($plazo_arriendamiento);
+            //var_dump($baths_no);
+            $plazo_arrendamiento_array['key']      = 'plazo-arrendamiento';
+            $plazo_arrendamiento_array['value']    = $plazo_arrendamiento;
+            $plazo_arrendamiento_array['type']     = 'numeric';
+            $plazo_arrendamiento_array['compare']  = '=='; 
+            $meta_query[]            = $plazo_arrendamiento_array;
         }
  
     //////////////////////////////////////////////////////////////////////////////////////
@@ -444,9 +490,10 @@ if($show_adv_search_general=='no'){
         $prop_selection =   new WP_Query($args);
         remove_filter( 'posts_orderby', 'wpestate_my_order' );
     }else{
-       
+        //var_dump($args);
         add_filter( 'posts_orderby', 'wpestate_my_order' );
         $prop_selection =   new WP_Query($args);
+        //var_dump($prop_selection);
         remove_filter( 'posts_orderby', 'wpestate_my_order' );
     }
     
