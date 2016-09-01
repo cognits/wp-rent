@@ -30,6 +30,7 @@ $adv_search_type        =   '';
 
 $book_from      =   '';
 $book_to        =   '';
+$move_in = "";
 $allowed_html   =   array();
 if( isset($_GET['check_in'])){
     $book_from      =  sanitize_text_field( wp_kses ( $_GET['check_in'],$allowed_html) );
@@ -37,9 +38,9 @@ if( isset($_GET['check_in'])){
 if( isset($_GET['check_out'])){
     $book_to        =  sanitize_text_field( wp_kses ( $_GET['check_out'],$allowed_html) );
 }
-                      
-     
-
+if( isset($_GET['move_in'])){
+    $move_in        =  sanitize_text_field( wp_kses ( $_GET['move_in'],$allowed_html) );
+}
 
 
 
@@ -159,7 +160,7 @@ if($show_adv_search_general=='no'){
         //////////////////////////////////////////////////////////////////////////////////////
         $plazo_arrendamiento_array=array();
 
-        if( isset($_GET['plazo_arrendamiento']) ) {
+        if( isset($_GET['plazo_arrendamiento']) && $_GET['plazo_arrendamiento']!='' ) {
 
             $plazo_arrendamiento       = intval($_GET['plazo_arrendamiento']);
             //var_dump($plazo_arriendamiento);
@@ -169,6 +170,22 @@ if($show_adv_search_general=='no'){
             $plazo_arrendamiento_array['type']     = 'numeric';
             $plazo_arrendamiento_array['compare']  = '=='; 
             $meta_query[]            = $plazo_arrendamiento_array;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// Move In meta
+        //////////////////////////////////////////////////////////////////////////////////////
+        $move_in_array = array();
+
+        if( isset($_GET['move_in']) && $_GET['move_in']!='' ) {
+
+            //$move_in       = intval($_GET['plazo_arrendamiento']);
+            //var_dump($plazo_arriendamiento);
+            //var_dump($baths_no);
+            $move_in_array['key']      = 'move-in';
+            $move_in_array['value']    = $move_in;
+            $move_in_array['type']     = 'DATE';
+            $move_in_array['compare']  = '>='; 
+            $meta_query[]            = $move_in_array;
         }
  
     //////////////////////////////////////////////////////////////////////////////////////
@@ -493,7 +510,7 @@ if($show_adv_search_general=='no'){
         //var_dump($args);
         add_filter( 'posts_orderby', 'wpestate_my_order' );
         $prop_selection =   new WP_Query($args);
-        //var_dump($prop_selection);
+        var_dump($prop_selection);
         remove_filter( 'posts_orderby', 'wpestate_my_order' );
     }
     
