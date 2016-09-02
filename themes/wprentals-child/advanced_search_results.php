@@ -510,7 +510,7 @@ if($show_adv_search_general=='no'){
         //var_dump($args);
         add_filter( 'posts_orderby', 'wpestate_my_order' );
         $prop_selection =   new WP_Query($args);
-        var_dump($prop_selection);
+        //var_dump($prop_selection);
         remove_filter( 'posts_orderby', 'wpestate_my_order' );
     }
     
@@ -532,6 +532,7 @@ if($show_adv_search_general=='no'){
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     
     $property_list_type_status =    esc_html(get_option('wp_estate_property_list_type_adv',''));
+    
     if ( $property_list_type_status == 2 ){
         get_template_part('templates/half_map_core');
     }else{

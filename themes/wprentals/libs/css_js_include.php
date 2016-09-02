@@ -296,7 +296,7 @@ function wpestate_scripts() {
     if ( is_page_template('user_dashboard_edit_listing.php') ){
         $load_extra =   1; 
     }
-    
+    //var_dump($load_extra);
     if($load_extra ==   1){
         wp_enqueue_script('wpestate_oms.min',trailingslashit( get_template_directory_uri() ).'js/google_js/oms.min.js',array('jquery'), '1.0', true);   
         wp_enqueue_script('wpestate_mapfunctions', trailingslashit( get_template_directory_uri() ).'js/google_js/mapfunctions.js',array('jquery'), '1.0', true);   

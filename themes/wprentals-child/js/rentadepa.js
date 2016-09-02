@@ -38,6 +38,27 @@
     }
   }());
 
+  // INIT CALENDAR
+  rentaDepa.utils.initNewCalendars = (function($) {
+    var init = function() {
+      $(document).ready(function(){
+        $('#move_in').datepicker({
+          dateFormat : "yy-mm-dd",
+          onSelect: function(date){
+            event.preventDefault();
+            //console.log(date);
+            //newpage = parseInt($(this).attr('data-future'), 10);
+            start_filtering_ajax_map(1);
+          }
+        });
+
+      });
+    };
+    return {
+      init: init
+    }
+  }($));
+
   rentaDepa.utils.modifyFootAdress = (function($) {
 
     var addSpanFootAddress = function(){
@@ -59,3 +80,4 @@
 
 
 rentaDepa.utils.modifyFootAdress.addSpanFootAddress();
+rentaDepa.utils.initNewCalendars.init();

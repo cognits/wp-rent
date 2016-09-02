@@ -4090,7 +4090,7 @@ if( !function_exists('wpestate_ajax_filter_listings_search_onthemap') ):
       
  
 
-        $meta_query = $rooms = $baths = $price = array();
+        $meta_query = $rooms = $baths = $price = $move_in_array = $plazo_arrendamiento_array = array();
         if (isset($_POST['advanced_rooms']) && is_numeric($_POST['advanced_rooms']) && intval( $_POST['advanced_rooms']!=0) )  {
             $rooms['key']   = 'property_rooms';
             $rooms['value'] = floatval ($_POST['advanced_rooms']);
@@ -4117,6 +4117,12 @@ if( !function_exists('wpestate_ajax_filter_listings_search_onthemap') ):
             $guest['compare']  = '>='; 
             $meta_query[]   = $guest;
             $guest_no   =   intval($_POST['guest_no']);
+        }
+
+        if (isset($_POST['plazo_arrendamiento']) && is_numeric($_POST['plazo_arrendamiento']) && intval( $_POST['plazo_arrendamiento']!=0) )  {
+            $plazo_arrendamiento_array['key']   = 'plazo-arrendamiento';
+            $plazo_arrendamiento_array['value'] = intval ($_POST['plazo_arrendamiento']);
+            $meta_query[]   = $plazo_arrendamiento_array;
         }
         
         
@@ -4316,7 +4322,6 @@ if( !function_exists('wpestate_ajax_filter_listings_search_onthemap') ):
                                             )
                 );   
                 $prop_selection =   new WP_Query($args);
-       
         }
       
         $counter          =     0;
@@ -4435,7 +4440,7 @@ if( !function_exists('wpestate_ajax_filter_listings_search_onthemap_esteate_auto
 
    
       
-        $meta_query = $rooms = $baths = $price = array();
+        $meta_query = $rooms = $baths = $price = $plazo_arrendamiento_array = $move_in_array =array();
         $meta_query['relation']='AND';
                 
         if (isset($_POST['advanced_rooms']) && is_numeric($_POST['advanced_rooms']) && intval( $_POST['advanced_rooms']!=0) )  {
@@ -4464,6 +4469,20 @@ if( !function_exists('wpestate_ajax_filter_listings_search_onthemap_esteate_auto
             $guest['compare']  = '>='; 
             $meta_query[]   = $guest;
             $guest_no=intval ($_POST['guest_no'] );
+        }
+
+        if (isset($_POST['plazo_arrendamiento']) && is_numeric($_POST['plazo_arrendamiento']) && intval( $_POST['plazo_arrendamiento']!=0) )  {
+            $plazo_arrendamiento_array['key']   = 'plazo-arrendamiento';
+            $plazo_arrendamiento_array['value'] = intval ($_POST['plazo_arrendamiento']);
+            $meta_query[]   = $plazo_arrendamiento_array;
+        }
+
+        if( isset($_POST['move_in'])){
+            $move_in_array['key']   = 'move-in';
+            $move_in_array['value'] = sanitize_text_field(  wp_kses ( $_POST['move_in'],$allowed_html) );
+            $move_in_array['type']     = 'DATE';
+            $move_in_array['compare']  = '>='; 
+            $meta_query[]   = $move_in_array;
         }
         
         

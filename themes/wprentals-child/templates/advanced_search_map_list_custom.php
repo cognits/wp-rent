@@ -55,14 +55,48 @@ if ($where_currency == 'before') {
            
         </div>
 
-        
+        <div class="col-md-3">
+            <div class="dropdown form-control rooms_icon" >
+                <div data-toggle="dropdown" id="rooms_no" class="filter_menu_trigger" data-value="all"> <?php esc_html_e('Rooms','wpestate');?> <span class="caret caret_filter"></span> </div>           
+                <input type="hidden" name="rooms_no"  id="rooms_no_input" value="">
+                <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="rooms_no">
+                    <?php echo wpestate_get_rooms_dropdown();?>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="dropdown form-control baths_icon" >
+                <div data-toggle="dropdown" id="baths_no" class="filter_menu_trigger" data-value="all"><?php echo esc_html__( 'Baths','wpestate');?> <span class="caret caret_filter"></span> </div>           
+                <input type="hidden" name="baths_no" id="baths_no_input"  value="">
+                <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="baths_no">
+                    <?php echo wpestate_get_baths_dropdown(); ?>
+                </ul>
+            </div>
+        </div>
                         
-        <div class="col-md-3 has_calendar calendar_icon ">
+        <div class="col-md-3">
+            <div class="dropdown form-control" >
+                <div data-toggle="dropdown" id="plazo_arrendamiento" class="filter_menu_trigger" data-value="<?php if(isset( $_GET['plazo_arrendamiento'] )){echo wp_kses (  esc_attr($_GET['plazo_arrendamiento']),$allowed_html);}?>"><?php if(isset( $_GET['plazo_arrendamiento'] )){echo wp_kses (  esc_attr($_GET['plazo_arrendamiento'].' meses'),$allowed_html);}else{ echo "Plazo arrendamiento";}?><span class="caret caret_filter"></span> </div>           
+                <input type="hidden" name="plazo_arrendamiento" id="plazo_arrendamiento_no_input"  value="<?php if(isset( $_GET['plazo_arrendamiento'] )){echo wp_kses (  esc_attr($_GET['plazo_arrendamiento']),$allowed_html);}?>">
+                <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="plazo_arrendamiento">
+                    <li role="presentation" data-value="3">+3 meses</li>
+                    <li role="presentation" data-value="6">6 meses</li>
+                    <li role="presentation" data-value="12">12 meses</li>
+                    <li role="presentation" data-value="any">todos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3 has_calendar calendar_icon">
+            <input type="text" id="move_in"        class="form-control" name="move_in"  placeholder="<?php esc_html_e('Move in','wpestate');?>" value="<?php if(isset( $_GET['move_in'] )){echo wp_kses (  esc_attr($_GET['move_in']),$allowed_html);}?>" >       
+        </div>
+        <div class="col-md-3 has_calendar calendar_icon hide">
             <input type="text" id="check_in_list"        class="form-control" name="check_in"  placeholder="<?php esc_html_e('Check in','wpestate');?>" value="<?php if(isset( $_GET['check_in'] )){echo wp_kses (  esc_attr($_GET['check_in']),$allowed_html);}?>" >       
         </div>
 
 
-        <div class="col-md-3 has_calendar calendar_icon ">
+        <div class="col-md-3 has_calendar calendar_icon hide">
             <input type="text" id="check_out_list"       class="form-control" name="check_out" placeholder="<?php esc_html_e('Check Out','wpestate');?>" value="<?php if(isset( $_GET['check_out'] )){echo wp_kses( esc_attr($_GET['check_out']),$allowed_html);}?>">
         </div>
 
@@ -86,15 +120,7 @@ if ($where_currency == 'before') {
             </div>
         </div>
         
-        <div class="col-md-3">
-            <div class="dropdown form-control rooms_icon" >
-                <div data-toggle="dropdown" id="rooms_no" class="filter_menu_trigger" data-value="all"> <?php esc_html_e('Rooms','wpestate');?> <span class="caret caret_filter"></span> </div>           
-                <input type="hidden" name="rooms_no"  id="rooms_no_input" value="">
-                <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="rooms_no">
-                    <?php echo wpestate_get_rooms_dropdown();?>
-                </ul>
-            </div>
-        </div>
+        
             
         
         <div class="col-md-3">
@@ -130,15 +156,7 @@ if ($where_currency == 'before') {
             </div>
         </div>
                  
-        <div class="col-md-3">
-            <div class="dropdown form-control baths_icon" >
-                <div data-toggle="dropdown" id="baths_no" class="filter_menu_trigger" data-value="all"><?php echo esc_html__( 'Baths','wpestate');?> <span class="caret caret_filter"></span> </div>           
-                <input type="hidden" name="baths_no" id="baths_no_input"  value="">
-                <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="baths_no">
-                    <?php echo wpestate_get_baths_dropdown(); ?>
-                </ul>
-            </div>
-        </div>
+        
         
         <div class="col-md-6">
             <div class="adv_search_slider">

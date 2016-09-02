@@ -4,11 +4,11 @@
 /// ajax filtering on header search ; jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function start_filtering_ajax_map(newpage) {
-    "use strict";
-    is_fit_bounds_zoom=1;
-    map_geo_first_load=1;
+    ////"use strict";
+    var is_fit_bounds_zoom=1;
+    var map_geo_first_load=1;
     
-    var guest_no,call_function,search_location_filter_autointernal,stype,property_admin_area, action, category, city, area, country, rooms, baths, beds, min_price, price_max, ajaxurl, postid, guest_no, check_out, check_in, all_checkers;
+    var guest_no,call_function,search_location_filter_autointernal,stype,property_admin_area, action, category, city, area, country, rooms, baths, beds, min_price, price_max, ajaxurl, postid, guest_no, check_out, check_in, all_checkers, plazo_arrendamiento, move_in;
     action      =   jQuery('#adv_actions').attr('data-value');
     category    =   jQuery('#adv_categ').attr('data-value');
     city        =   jQuery('#search_location_city').val();
@@ -22,6 +22,10 @@ function start_filtering_ajax_map(newpage) {
     guest_no    =   jQuery('#guest_no_input').val();   
     search_location_filter_autointernal =   jQuery('#search_location_filter_autointernal').val();
 
+    //Custom Code
+    plazo_arrendamiento = jQuery('#plazo_arrendamiento_no_input').val();
+    
+    //console.log(plazo_arrendamiento);
     call_function = 'wpestate_ajax_filter_listings_search_onthemap';
     if (document.getElementById('stype')) {
         call_function = 'wpestate_ajax_filter_listings_search_onthemap_esteate_auto';
@@ -32,6 +36,9 @@ function start_filtering_ajax_map(newpage) {
     }
     if (isNaN(baths)) {
         baths = '';
+    }
+    if (isNaN(beds)) {
+        beds = '';
     }
     if (isNaN(beds)) {
         beds = '';
@@ -49,6 +56,10 @@ function start_filtering_ajax_map(newpage) {
 
     check_in    =   jQuery('#check_in_list').val();
     check_out   =   jQuery('#check_out_list').val();
+    //
+    move_in   =   jQuery('#move_in').val();
+    //console.log(move_in);
+
     all_checkers = '';
     jQuery('#extended_search_check_filter input[type="checkbox"]').each(function () {
         if (jQuery(this).is(":checked")) {
@@ -91,11 +102,14 @@ function start_filtering_ajax_map(newpage) {
             'country'           :   country,
             'property_admin_area':  property_admin_area,
             'stype'             :   stype,
-            'search_location_filter_autointernal':search_location_filter_autointernal
+            'search_location_filter_autointernal':search_location_filter_autointernal,
+            //  CUSTOM CODE
+            'move_in'           :   move_in,
+            'plazo_arrendamiento':  plazo_arrendamiento 
         },
         success: function (data) {
             // console.log(data);
-            // console.log(data.arguments);
+             console.log(data.arguments);
             jQuery('#advanced_search_map_list').removeClass('move_to_fixed');
             jQuery('#listing_loader').hide();
             jQuery('.listing_loader_title').show();
@@ -122,7 +136,7 @@ function start_filtering_ajax_map(newpage) {
 
 
 function  start_filtering_ajax_map_with_map_geo(newpage, ne_lat, ne_lng, sw_lat, sw_lng ) {
-    "use strict";
+    ////"use strict";
     console.log('start_filtering_ajax_map_with_map_geo');
     var guest_no,call_function,search_location_filter_autointernal,stype,property_admin_area, action, category, city, area, country, rooms, baths, beds, min_price, price_max, ajaxurl, postid, guest_no, check_out, check_in, all_checkers;
     action      =   jQuery('#adv_actions').attr('data-value');
@@ -264,7 +278,7 @@ function  start_filtering_ajax_map_with_map_geo(newpage, ne_lat, ne_lng, sw_lat,
 
 
 function start_filtering_ajax_on_main_map(guest_no) {
-    "use strict";
+    ////"use strict";
    // console.log('start_filtering_ajax_on_main_map');
     
    if (document.getElementById('search_location_autointernal')){
@@ -339,7 +353,7 @@ function start_filtering_ajax_on_main_map(guest_no) {
 /// ajax filtering on header search ; jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function get_filtering_ajax_result() {
-    "use strict";
+    ////"use strict";
 
     var action, category, city, area, rooms, baths, min_price, price_max, ajaxurl, postid;
     action      =   jQuery('#adv_actions').attr('data-value');
@@ -380,7 +394,7 @@ function get_filtering_ajax_result() {
 /// ajax filtering on header search ; jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function custom_get_filtering_ajax_result() {
-    "use strict";
+    //"use strict";
     //console.log('custom_get_filtering_ajax_result');
     var   val1, val2, val3, val4, val5, val6, val7, val8, ajaxurl, postid;
 
@@ -423,7 +437,7 @@ function custom_get_filtering_ajax_result() {
 /// ajax filtering on header search ; jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function start_filtering_ajax(newpage) {
-    "use strict";
+    //"use strict";
     var action, guest_no, country, check_out, check_in, category, city, area, rooms, baths, min_price, price_max, ajaxurl, postid;
     action      =   jQuery('#adv_actions').attr('data-value');
     category    =   jQuery('#adv_categ').attr('data-value');
@@ -483,7 +497,7 @@ function start_filtering_ajax(newpage) {
 /// ajax filtering on header search ; jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function custom_search_start_filtering_ajax(newpage) {
-    "use strict";
+    //"use strict";
     var   val1, val2, val3, val4, val5, val6, val7, val8, ajaxurl, postid, slider_min, slider_max;
     val1 =  get_custom_value(mapfunctions_vars.slugs[0]);
     val2 =  get_custom_value(mapfunctions_vars.slugs[1]);
@@ -536,7 +550,7 @@ function custom_search_start_filtering_ajax(newpage) {
 /// redo js after ajax calls - jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function restart_js_after_ajax() {
-    "use strict";
+    //"use strict";
     var newpage, post_id, post_image, to_add, icon, already_in, i, bLazy;
     
     //bLazy = new Blazy();
@@ -655,7 +669,7 @@ function restart_js_after_ajax() {
 /// add remove from favorite-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function add_remove_favorite(icon) {
-    "use strict";
+    //"use strict";
     var post_id, securitypass, ajaxurl;
     post_id         =  icon.attr('data-postid');
     securitypass    =  jQuery('#security-pass').val();
@@ -694,7 +708,7 @@ function add_remove_favorite(icon) {
 /// resend listing for approval-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function resend_for_approval(prop_id, selected_div) {
-    "use strict";
+    //"use strict";
     var ajaxurl, normal_list_no;
     ajaxurl   =   control_vars.admin_url + 'admin-ajax.php';
 
@@ -724,7 +738,7 @@ function resend_for_approval(prop_id, selected_div) {
 /// make property featured-jslint checked
 //////////////////////////////////////////////////////////////////////////////////////////// 
 function make_prop_featured(prop_id, selectedspan) {
-    "use strict";
+    //"use strict";
     var ajaxurl      =   ajaxcalls_vars.admin_url + 'admin-ajax.php';
     jQuery.ajax({
         type: 'POST',
@@ -753,7 +767,7 @@ function make_prop_featured(prop_id, selectedspan) {
 /// pay package via paypal recuring-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////   
 function recuring_pay_pack_via_paypal() {
-    "use strict";
+    //"use strict";
     var ajaxurl, packName, packId;
     ajaxurl      =   control_vars.admin_url + 'admin-ajax.php';
     packName     =   jQuery('#pack_select :selected').text();
@@ -779,7 +793,7 @@ function recuring_pay_pack_via_paypal() {
 /// pay package via paypal-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////   
 function pay_pack_via_paypal() {
-    "use strict";
+    //"use strict";
     var  ajaxurl, packName, packId;
     ajaxurl     =   control_vars.admin_url + 'admin-ajax.php';
     packName    =   jQuery('#pack_select :selected').text();
@@ -804,7 +818,7 @@ function pay_pack_via_paypal() {
 /// listing pay -jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function listing_pay(prop_id, selected_div, is_featured, is_upgrade) {
-    "use strict";
+    //"use strict";
     var ajaxurl      =   control_vars.admin_url + 'admin-ajax.php';
     jQuery.ajax({
         type: 'POST',
@@ -827,7 +841,7 @@ function listing_pay(prop_id, selected_div, is_featured, is_upgrade) {
 /// start filtering -jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function start_filtering(newpage) {
-    "use strict";
+    //"use strict";
     jQuery('#grid_view').addClass('icon_selected');
     jQuery('#list_view').removeClass('icon_selected');
     var action, category, city, area, order, ajaxurl, page_id;
@@ -878,7 +892,7 @@ function start_filtering(newpage) {
 /// show login form on fav login-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function show_login_form(type, ispop, propid) {
-    "use strict";
+    //"use strict";
     var  ajaxurl    =  ajaxcalls_vars.admin_url + 'admin-ajax.php';
     jQuery.ajax({
         type: 'POST',
@@ -904,7 +918,7 @@ function show_login_form(type, ispop, propid) {
 /// change pass on profile-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////   
 function wpestate_change_pass_profile() {
-    "use strict";
+    //"use strict";
     var oldpass, newpass, renewpass, securitypass, ajaxurl;
     oldpass         =  jQuery('#oldpass').val();
     newpass         =  jQuery('#newpass').val();
@@ -936,7 +950,7 @@ function wpestate_change_pass_profile() {
 /// user register via widget-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function wpestate_register_wd() {
-    "use strict";
+    //"use strict";
     var user_pass,user_pass_retype,capthca, user_login_register, user_email_register, nonce, ajaxurl,user_type;
     user_login_register =  jQuery('#user_login_register_wd').val();
     user_email_register =  jQuery('#user_email_register_wd').val();
@@ -996,7 +1010,7 @@ function wpestate_register_wd() {
 /// user register via widget-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function wpestate_register_wd_mobile() {
-    "use strict";
+    //"use strict";
     var user_pass,user_pass_retype,capthca,user_login_register, user_email_register, nonce, ajaxurl,user_type;
     user_login_register =  jQuery('#user_login_register_wd_mobile').val();
     user_email_register =  jQuery('#user_email_register_wd_mobile').val();
@@ -1053,7 +1067,7 @@ function wpestate_register_wd_mobile() {
 /// on ready -jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function wpestate_forgot(type) {
-    "use strict";
+    //"use strict";
     var  forgot_email, securityforgot, postid, ajaxurl;
     postid                =  jQuery('#postid').val();
     ajaxurl               =  ajaxcalls_vars.admin_url + 'admin-ajax.php';
@@ -1114,7 +1128,7 @@ function wpestate_forgot(type) {
 /// on ready-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////   
 function wpestate_login_wd() {
-    "use strict";
+    //"use strict";
     var login_user, login_pwd, ispop, ajaxurl, security;
 
     login_user          =  jQuery('#login_user_wd').val();
@@ -1163,7 +1177,7 @@ function wpestate_login_wd() {
 /// on ready-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////   
 function wpestate_login_wd_mobile() {
-    "use strict";
+    //"use strict";
     var login_user, login_pwd, ispop, ajaxurl, security;
 
     login_user          =  jQuery('#login_user_wd_mobile').val();
@@ -1217,7 +1231,7 @@ function wpestate_login_wd_mobile() {
 /// on ready-jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////   
 function wpestate_login_topbar() {
-    "use strict";
+    //"use strict";
     var login_user, login_pwd, ispop, ajaxurl, security;
 
     login_user          =  jQuery('#login_user_topbar').val();
@@ -1257,7 +1271,7 @@ function wpestate_login_topbar() {
 // enable actions modal -jslint checked
 ////////////////////////////////////////////////////////////////////////////////
 function enable_actions_modal() {
-    "use strict";
+    //"use strict";
     if(  document.getElementById('capthca_register') ){
         widgetId1 = grecaptcha.render('capthca_register', {
             'sitekey' : control_vars.captchakey,
@@ -1361,7 +1375,7 @@ function enable_actions_modal() {
 // register function -jslint checked
 ////////////////////////////////////////////////////////////////////////////////
 function wpestate_register() {
-    "use strict";
+    //"use strict";
     var user_pass,user_pass_retype,capthca,user_login_register, user_email_register, nonce, ajaxurl,propid, user_type;
     user_login_register =   jQuery('#user_login_register').val();
     user_email_register =   jQuery('#user_email_register').val();
@@ -1423,7 +1437,7 @@ function wpestate_register() {
 // register function -jslint checked
 ////////////////////////////////////////////////////////////////////////////////
 function wpestate_register_sh() {
-    "use strict";
+    //"use strict";
     var capthca,user_pass,user_pass_retype,user_login_register, user_email_register, nonce, ajaxurl,propid, user_type;
     user_login_register =   jQuery('#user_login_register_sh').val();
     user_email_register =   jQuery('#user_email_register_sh').val();
@@ -1483,7 +1497,7 @@ function wpestate_register_sh() {
 // login function -jslint checked
 ////////////////////////////////////////////////////////////////////////////////
 function wpestate_login() {
-    "use strict";
+    //"use strict";
     var login_user, login_pwd, security, ispop, ajaxurl,propid;
     login_user          =  jQuery('#login_user').val();
     login_pwd           =  jQuery('#login_pwd').val();
@@ -1555,7 +1569,7 @@ function wpestate_login() {
     });
 }
 function wpestate_login_sh() {
-    "use strict";
+    //"use strict";
     var login_user, login_pwd, security, ispop, ajaxurl,propid;
     login_user          =  jQuery('#login_user_sh').val();
     login_pwd           =  jQuery('#login_pwd_sh').val();
@@ -1615,7 +1629,7 @@ function wpestate_login_sh() {
 // login via facebook-jslint checked
 ////////////////////////////////////////////////////////////////////////////////    
 function login_via_facebook(button) {
-    "use strict";
+    //"use strict";
     var login_type, ajaxurl,propid;
     ajaxurl     =   control_vars.admin_url + 'admin-ajax.php';
     login_type  =   'facebook';
@@ -1642,7 +1656,7 @@ function login_via_facebook(button) {
 // login via google / openid -jslint checked
 ////////////////////////////////////////////////////////////////////////////////
 function login_via_google(button) {
-    "use strict";
+    //"use strict";
     var ajaxurl, login_type,propid;
     ajaxurl         =  control_vars.admin_url + 'admin-ajax.php';
     login_type      =  button.attr('data-social');
@@ -1668,7 +1682,7 @@ function login_via_google(button) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function login_via_google_oauth() {
-    "use strict";
+    //"use strict";
     var ajaxurl, login_type;
     ajaxurl         =  control_vars.admin_url + 'admin-ajax.php';
 
@@ -1690,7 +1704,7 @@ function login_via_google_oauth() {
 // update bar after login -jslint checked
 ////////////////////////////////////////////////////////////////////////////////
 function update_menu_bar(newuser) {
-    "use strict";
+    //"use strict";
     var usericon, ajaxurl;
     ajaxurl =   control_vars.admin_url + 'admin-ajax.php';
 
@@ -1716,7 +1730,7 @@ function update_menu_bar(newuser) {
 /// on ready -jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function ($) {
-    "use strict";
+    //"use strict";
     $('.disable_listing').click(function () {
         var prop_id = $(this).attr('data-postid');
         var ajaxurl         =   ajaxcalls_vars.admin_url + 'admin-ajax.php';
